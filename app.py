@@ -15,7 +15,7 @@ app.after_request(after_request)
 
 
 def get_json():
-    csv_file = open("test1.csv", encoding='utf-8')
+    csv_file = open("/home/inesa/IntelligentPark/test1.csv", encoding='utf-8')
     reader = csv.DictReader(csv_file)
     dict1 = {}
     value = []
@@ -26,7 +26,7 @@ def get_json():
     dict1['time'] = time
     dict1['value'] = value
     j = json.dumps(dict1)
-    return j;
+    return j
 
 
 @app.route('/')
