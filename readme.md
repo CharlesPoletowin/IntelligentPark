@@ -19,3 +19,4 @@ venv\Scripts\activate
 ```shell
 (venv)$ pip install -r Pipfile
  ```
+测一下Pull
