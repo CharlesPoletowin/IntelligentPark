@@ -10,6 +10,11 @@ def t_test():
     return 'fuck me11'
 
 
+@yp_test.route('/testtest', methods=['POST'])
+def t_test2():
+    return 'OK'
+
+
 @yp_test.route('/table')
 # @login_required
 def table_generation():
