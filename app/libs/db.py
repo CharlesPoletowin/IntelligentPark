@@ -158,7 +158,6 @@ def get_data_from_db():
         elif energy == 'MD':
             res = db.find('huaxin_MD_all_1d_pre', {'Datetime': dt})
             for item in res:
-                print("123", item)
                 md = item['MD']
             return md
 

@@ -4,9 +4,10 @@
 # project   ：apiToy
 # IDE       : PyCharm
 
+import os
 from app.libs.yellowprint import YellowPrint
 from app.libs.db import get_data_from_db
-from app.libs.get_temperature import get_temperature_shanghai
+from app.libs.get_temperature import get_temperature_shanghai, update_current_temperature_to_mongodb
 from flask import jsonify
 
 yp_data = YellowPrint('yp_data', url_prefix='/data')
@@ -19,4 +20,8 @@ def get_data():
 
 @yp_data.route('/temperature', methods=['GET'])
 def get_temperature_data():
-    return get_temperature_shanghai()
+    res = os.fork()
+    if res == 0:
+        update_current_temperature_to_mongodb()
+    else:
+        return get_temperature_shanghai()
